@@ -34,9 +34,14 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
             distance[i] = 0;
         }
 
+        System.out.println("\n실행 결과\n");
+
         for (int i = 0; i < tryTime; i++) {
             // 차량 이동
             goForward(distance);
+            // 경기 내용 출력 함수
+            printDistance(CarNamesArr, distance);
+            System.out.println();
         }
     }
 
@@ -52,5 +57,20 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         int go = 0;
         if(Randoms.pickNumberInRange(0,9)>=MOVING_FORWARD) go = 1;
         return go;
+    }
+
+    // 이동 현황을 출력하는 함수
+    public static void printDistance(String[] CarNamesArr, int[] distance) {
+        for (int i = 0; i < CarNamesArr.length; i++) {
+            System.out.print(CarNamesArr[i] + " : ");
+            printDash(distance, i);
+            System.out.println();
+        }
+    }
+
+    public static void printDash(int[] distance, int i) {
+        for (int j = 0; j < distance[i]; j++) {
+            System.out.print("-");
+        }
     }
 }

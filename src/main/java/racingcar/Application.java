@@ -50,7 +50,7 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
     // 이동 여부를 판별하는 함수
     public static int isGo() {
         int go = 0;
-        // 전진 또는 정지 기능 구현
+        if(Randoms.pickNumberInRange(0,9)>=MOVING_FORWARD) go = 1;
         return go;
     }
 }

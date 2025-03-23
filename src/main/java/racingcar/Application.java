@@ -23,6 +23,9 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
 
         // 경주 시작 함수
         startRacing(CarNamesArr, distance, tryTime);
+
+        // 경기 결과 출력 함수
+        printWinner(CarNamesArr, distance);
     }
 
     public static String[] inputCarNames(String CarNames) {
@@ -72,5 +75,26 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         for (int j = 0; j < distance[i]; j++) {
             System.out.print("-");
         }
+    }
+
+    public static void printWinner(String[] CarNamesArr, int[] distance) {
+        boolean isPrinted = false;
+        int max = maxDistance(distance);
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < distance.length; i++) {
+            if(isPrinted && distance[i]==max) System.out.print(", ");
+            if(distance[i]==max) {
+                System.out.print(CarNamesArr[i]);
+                isPrinted = true;
+            }
+        }
+    }
+
+    public static int maxDistance(int[] distance) {
+        int max = 0;
+        for (int i = 0; i < distance.length; i++) {
+            if(distance[i] > max) max = distance[i];
+        }
+        return max;
     }
 }

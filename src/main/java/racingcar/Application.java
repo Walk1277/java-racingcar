@@ -11,15 +11,46 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         // 자동차 이름 입력 함수
         String[] CarNamesArr = inputCarNames(Console.readLine());
 
+        // 입력한 자동차 이름 개수만큼 이동 거리 정보를 담을 배열 생성
+        int[] distance = new int[CarNamesArr.length];
+
         // 시도할 횟수는 몇 회인가요?
         System.out.println("시도할 횟수는 몇 회인가요?");
         // 시도 횟수 입력
         String tryTimeStr = Console.readLine();
         // 시도 횟수를 int 형으로 변환하여 저장
         int tryTime = Integer.parseInt(tryTimeStr);
+
+        // 경주 시작 함수
+        startRacing(CarNamesArr, distance, tryTime);
     }
 
     public static String[] inputCarNames(String CarNames) {
         return CarNames.split(",");
+    }
+
+    public static void startRacing(String[] CarNamesArr, int[] distance, int tryTime) {
+        for (int i = 0; i < CarNamesArr.length; i++) {
+            distance[i] = 0;
+        }
+
+        for (int i = 0; i < tryTime; i++) {
+            // 차량 이동
+            goForward(distance);
+        }
+    }
+
+    // 이동 현황을 배열에 업데이트하는 함수
+    public static void goForward(int[] distance) {
+        for (int i = 0; i < distance.length; i++) {
+            distance[i] = distance[i] + isGo();
+        }
+    }
+
+    // 이동 여부를 판별하는 함수
+    public static int isGo() {
+        int go = 0;
+        // 전진 또는 정지 기능 구현
+        return go;
     }
 }

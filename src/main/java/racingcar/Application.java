@@ -11,7 +11,7 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         // 자동차 이름 입력 함수
         String[] CarNamesArr = inputCarNames(Console.readLine());
         // 표준 예외 처리
-        isCorrectNames(CarNamesArr);
+        InvalidInputFilter.isCorrectNames(CarNamesArr);
 
         // 입력한 자동차 이름 개수만큼 이동 거리 정보를 담을 배열 생성
         int[] distance = new int[CarNamesArr.length];
@@ -34,18 +34,6 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
 
     public static String[] inputCarNames(String CarNames) {
         return CarNames.split(",");
-    }
-
-    public static void isCorrectNames(String[] CarNamesArr) {
-        int max = 0;
-        int min = 2147483647;
-        for (int i = 0; i < CarNamesArr.length; i++) {
-            if(CarNamesArr[i].length() > max) max = CarNamesArr[i].length();
-            if(CarNamesArr[i].length() < min) min = CarNamesArr[i].length();
-        }
-        if (max > 5 || min < 1 || min > max) {
-            throw new IllegalArgumentException("각 자동차 이름의 길이는 1~5 범위 내로 입력하세요.");
-        }
     }
 
     public static void isCorrectNumber(String tryTimeStr) {

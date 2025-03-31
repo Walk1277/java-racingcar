@@ -14,4 +14,10 @@ public class InvalidInputFilter {
             throw new IllegalArgumentException("각 자동차 이름의 길이는 1~5 범위 내로 입력하세요.");
         }
     }
+
+    public static void isCorrectNumber(String tryTimeStr) {
+        if(!Character.isDigit(tryTimeStr.charAt(0))) {
+            throw new IllegalArgumentException("올바른 수를 입력하세요.");
+        }
+    }
 }

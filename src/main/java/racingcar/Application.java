@@ -21,7 +21,7 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         // 시도 횟수 입력
         String tryTimeStr = Console.readLine();
         // 표준 예외 처리
-        isCorrectNumber(tryTimeStr);
+        InvalidInputFilter.isCorrectNumber(tryTimeStr);
         // 시도 횟수를 int 형으로 변환하여 저장
         int tryTime = Integer.parseInt(tryTimeStr);
 
@@ -34,12 +34,6 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
 
     public static String[] inputCarNames(String CarNames) {
         return CarNames.split(",");
-    }
-
-    public static void isCorrectNumber(String tryTimeStr) {
-        if(!Character.isDigit(tryTimeStr.charAt(0))) {
-            throw new IllegalArgumentException("올바른 수를 입력하세요.");
-        }
     }
 
     public static void startRacing(String[] CarNamesArr, int[] distance, int tryTime) {

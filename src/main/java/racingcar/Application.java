@@ -6,7 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일명과 동일한 클래스명으로 작성
     private static final int MOVING_FORWARD = 4;
     public static void main(String[] args) {
-        // 경주 할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
         System.out.println("경주 할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         // 자동차 이름 입력 함수
         String[] CarNamesArr = inputCarNames(Console.readLine());
@@ -16,7 +15,6 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         // 입력한 자동차 이름 개수만큼 이동 거리 정보를 담을 배열 생성
         int[] distance = new int[CarNamesArr.length];
 
-        // 시도할 횟수는 몇 회인가요?
         System.out.println("시도할 횟수는 몇 회인가요?");
         // 시도 횟수 입력
         String tryTimeStr = Console.readLine();
@@ -45,25 +43,11 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
 
         for (int i = 0; i < tryTime; i++) {
             // 차량 이동
-            goForward(distance);
+            MovingLogic.goForward(distance);
             // 경기 내용 출력 함수
             printDistance(CarNamesArr, distance);
             System.out.println();
         }
-    }
-
-    // 이동 현황을 배열에 업데이트하는 함수
-    public static void goForward(int[] distance) {
-        for (int i = 0; i < distance.length; i++) {
-            distance[i] = distance[i] + isGo();
-        }
-    }
-
-    // 이동 여부를 판별하는 함수
-    public static int isGo() {
-        int go = 0;
-        if(Randoms.pickNumberInRange(0,9)>=MOVING_FORWARD) go = 1;
-        return go;
     }
 
     // 이동 현황을 출력하는 함수

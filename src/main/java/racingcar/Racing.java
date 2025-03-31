@@ -10,7 +10,7 @@ public class Racing {
 
         for (int i = 0; i < tryTime; i++) {
             // 차량 이동
-            MovingLogic.goForward(distance);
+            MovingLogic.updatePosition(distance);
             // 경기 내용 출력 함수
             PrintCurrentRacing.printDistance(CarNamesArr, distance);
             System.out.println();

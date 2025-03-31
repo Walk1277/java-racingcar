@@ -12,8 +12,10 @@ public class InvalidInputFilter {
     }
 
     public static void isCorrectNumber(String tryTimeStr) {
-        if(!Character.isDigit(tryTimeStr.charAt(0))) {
-            throw new IllegalArgumentException("올바른 수를 입력하세요.");
+        for(int i = 0; i < tryTimeStr.length(); i++) {
+            if(!Character.isDigit(tryTimeStr.charAt(i))) {
+                throw new IllegalArgumentException("올바른 수를 입력하세요.");
+            }
         }
     }
 }

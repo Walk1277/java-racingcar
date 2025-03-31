@@ -45,23 +45,8 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
             // 차량 이동
             MovingLogic.goForward(distance);
             // 경기 내용 출력 함수
-            printDistance(CarNamesArr, distance);
+            PrintCurrentRacing.printDistance(CarNamesArr, distance);
             System.out.println();
-        }
-    }
-
-    // 이동 현황을 출력하는 함수
-    public static void printDistance(String[] CarNamesArr, int[] distance) {
-        for (int i = 0; i < CarNamesArr.length; i++) {
-            System.out.print(CarNamesArr[i] + " : ");
-            printDash(distance, i);
-            System.out.println();
-        }
-    }
-
-    public static void printDash(int[] distance, int i) {
-        for (int j = 0; j < distance[i]; j++) {
-            System.out.print("-");
         }
     }
 

@@ -1,10 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일명과 동일한 클래스명으로 작성
-    private static final int MOVING_FORWARD = 4;
     public static void main(String[] args) {
         System.out.println("경주 할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         // 자동차 이름 입력 함수
@@ -24,7 +22,7 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
         int tryTime = Integer.parseInt(tryTimeStr);
 
         // 경주 시작 함수
-        startRacing(CarNamesArr, distance, tryTime);
+        Racing.startRacing(CarNamesArr, distance, tryTime);
 
         // 경기 결과 출력 함수
         printWinner(CarNamesArr, distance);
@@ -32,22 +30,6 @@ public class Application { // 퍼블릭 키워드가 붙은 클래스는 파일�
 
     public static String[] inputCarNames(String CarNames) {
         return CarNames.split(",");
-    }
-
-    public static void startRacing(String[] CarNamesArr, int[] distance, int tryTime) {
-        for (int i = 0; i < CarNamesArr.length; i++) {
-            distance[i] = 0;
-        }
-
-        System.out.println("\n실행 결과\n");
-
-        for (int i = 0; i < tryTime; i++) {
-            // 차량 이동
-            MovingLogic.goForward(distance);
-            // 경기 내용 출력 함수
-            PrintCurrentRacing.printDistance(CarNamesArr, distance);
-            System.out.println();
-        }
     }
 
     public static void printWinner(String[] CarNamesArr, int[] distance) {
